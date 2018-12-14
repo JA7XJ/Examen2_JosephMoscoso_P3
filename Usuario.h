@@ -4,6 +4,10 @@
 #include <vector>
 using std::vector;
 
+#include <fstream>
+using std::ifstream;
+using std::ofstream;
+
 #include <string>
 using std::string;
 
@@ -17,7 +21,7 @@ class Usuario{
     vector<Usuario*> contactos;
   public:
     Usuario();
-    Usuario(string, int, string);
+    Usuario(string, int, string, string);
     ~Usuario();
     string getNombre();
     void setNombre(string);
@@ -33,6 +37,9 @@ class Usuario{
     void setContactos(vector <Usuario*>);
     vector<Usuario*> getContactos();
     void addContactos(Usuario*);
+    string toString();
+    void write(ofstream&);
+    void read(ifstream&);
 };
 
 #endif

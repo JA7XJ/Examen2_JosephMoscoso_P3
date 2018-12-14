@@ -24,9 +24,10 @@ Usuario::~Usuario(){
   }
 }
 
-Usuario::Usuario(string nombre, int edad, string genero){
-  this->nombre=genero;
+Usuario::Usuario(string nombre, int edad, string password, string genero){
+  this->nombre=nombre;
   this->edad=edad;
+  this->password=password;
   this->genero=genero;
 }
 
@@ -84,4 +85,48 @@ vector<string> Usuario::getIntereses(){
 
 void Usuario::addIntereses(string c){
     intereses.push_back(c);
+}
+
+string Usuario::toString(){
+  return "Nombre: " + this->nombre + "\n" + "Edad" + std::to_string(this->edad) + "\n" + "Genero" + this->genero + "\n";
+}
+
+void Usuario::read(ifstream& in){
+  int size;
+  in.read(reinterpret_cast<char*>(&size),sizeof(int));
+  char nameBuffer[size+1];
+  in.read(nameBuffer,size);
+  nameBuffer[size]=0;
+  nombre=nameBuffer;
+
+  in.read(reinterpret_cast<char*>(&edad), sizeof(int));
+
+  in.read(reinterpret_cast<char*>(&size),sizeof(int));
+  char numBuffer[size+1];
+  in.read(numBuffer, size);
+  numBuffer[size]=0;
+  password=numBuffer;
+
+  in.read(reinterpret_cast<char*>(&size),sizeof(int));
+  char carreraBuffer[size+1];
+  in.read(carreraBuffer, size);
+  carreraBuffer[size]=0;
+  genero=carreraBuffer;
+}
+
+void Usuario::write(ofstream& out){
+  int size = nombre.size();
+
+  out.write(reinterpret_cast<char*>(&size),sizeof(int));
+  out.write(nombre.data(),size);
+
+  out.write(reinterpret_cast<char*>(&edad),sizeof(int));
+
+  size=password.size();
+  out.write(reinterpret_cast<char*>(&size),sizeof(int));
+  out.write(password.data(),size);
+
+  size=genero.size();
+  out.write(reinterpret_cast<char*>(&size),sizeof(int));
+  out.write(genero.data(),size);
 }

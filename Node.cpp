@@ -1,20 +1,21 @@
 #include "Node.h"
+#include "Usuario.h"
 
 Node::Node(){
   data=0;
   next=0;
 }
 
-Node::Node(Object* data){
+Node::Node(Usuario* data){
   this->data=data;
   next=0;
 }
 
-Object* Node::getData(){
+Usuario* Node::getData(){
   return data;
 }
 
-void Node::setData(Object* pdata){
+void Node::setData(Usuario* pdata){
   data=pdata;
 }
 

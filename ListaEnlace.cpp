@@ -1,4 +1,5 @@
 #include "ListaEnlace.h"
+#include "Usuario.h"
 
 #include <iostream>
 using std::cout;
@@ -8,14 +9,14 @@ ListaEnlace::ListaEnlace(){
   inicio=0;
 }
 
-bool ListaEnlace::push(Object* obj){
+bool ListaEnlace::push(Usuario* obj){
   Node* newNode= new Node(obj);
   newNode->setNext(inicio);
   inicio=newNode;
   return true;
 }
 
-Object* ListaEnlace::top(){
+Usuario* ListaEnlace::top(){
   if (inicio==0) {
     return 0;
   }else{
@@ -23,13 +24,13 @@ Object* ListaEnlace::top(){
   }
 }
 
-Object* ListaEnlace::pop(){
+Usuario* ListaEnlace::pop(){
   if (inicio==0) {
     return 0;
   }else{
     Node* tmp=inicio;
     inicio=inicio->getNext();
-    Object* retValue=tmp->getData();
+    Usuario* retValue=tmp->getData();
     tmp->setData(0);
     tmp->setNext(0);
     delete tmp;
