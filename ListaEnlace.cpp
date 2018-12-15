@@ -7,12 +7,14 @@ using std::endl;
 
 ListaEnlace::ListaEnlace(){
   inicio=0;
+  size=0;
 }
 
 bool ListaEnlace::push(Usuario* obj){
   Node* newNode= new Node(obj);
   newNode->setNext(inicio);
   inicio=newNode;
+  size=size+1;
   return true;
 }
 
@@ -34,6 +36,7 @@ Usuario* ListaEnlace::pop(){
     tmp->setData(0);
     tmp->setNext(0);
     delete tmp;
+    size=size-1;
     return retValue;
   }
 }
@@ -46,6 +49,10 @@ void ListaEnlace::print(){
     tmp=tmp->getNext();
   }
   cout<<endl;
+}
+
+int ListaEnlace::getSize(){
+  return size;
 }
 
 ListaEnlace::~ListaEnlace(){

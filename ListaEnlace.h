@@ -6,6 +6,7 @@
 
 class ListaEnlace{
   private:
+    int size;
     Node* inicio;
   public:
     ListaEnlace();
@@ -13,6 +14,7 @@ class ListaEnlace{
     Usuario* pop();
     Usuario* top();
     void print();
+    int getSize();
     ~ListaEnlace();
 };
 
