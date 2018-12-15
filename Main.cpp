@@ -32,7 +32,7 @@ int main(){
       cout<<"-----------------------------------------"<<endl;
     }
     if (op==1) {
-      cout<<"Ingrese el nombre: ";
+      /*cout<<"Ingrese el nombre: ";
       string nombre="";
       cin>>nombre;
       cout<<"Ingrese la contraseña: ";
@@ -134,8 +134,8 @@ int main(){
             for (int i = 0; i < temp2.size(); i++) {
                 delete temp2[i];
             }*/
-            //temp2.clear();
-            cout<<"-----------------------------------------"<<endl;
+            //temp2.clear();*/
+            /*cout<<"-----------------------------------------"<<endl;
             cout<<"Ingrese el indice de la persona a agregar: ";
             int agregar=0;
             cin>>agregar;
@@ -169,7 +169,7 @@ int main(){
         }
       }else{
         cout<<"Lo siento, no existe el usuario"<<endl;
-      }
+      }*/
     }
     if (op==2) {
       cout<<"Por favor ingrese su nombre: ";
