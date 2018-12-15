@@ -55,15 +55,6 @@ int main(){
         counter=counter+1;
       //  delete temp;
       }
-      /*int counter2=0;
-      while (counter2<temp2.size()) {
-        lista->push(temp2[counter2]);
-        counter2=counter2+1;
-      }
-      for (int i = 0; i < temp2.size(); i++) {
-          delete temp2[i];
-      }*/
-      //temp2.clear();
       if (log==true) {
         int inicio=0;
         while (inicio==0) {
@@ -85,18 +76,6 @@ int main(){
             Usuario* t=NULL;
             cout<<"Sugerencia de amigos"<<endl;
             cout<<"-----------------------------------------"<<endl;
-            /*while (c<lista->getSize()) {
-              t=lista->pop();
-              temp2.push_back(t);
-              cout<<c<<")Nombre: "<<temp2[c]->getNombre()<<" Intereses: "<<endl;
-              for (int i = 0; i < temp2[c]->getIntereses().size(); i++) {
-                  if (temp2[c]->getIntereses()[i]==actual->getIntereses()[i]) {
-                      cout<<temp2[c]->getIntereses()[i]<<"\n";
-                  }
-              }
-              c=c+1;
-              delete t;
-            }*/
             for (int i = 0; i < temp2.size(); i++) {
                 for (int j = 0; j < temp2[i]->getIntereses().size(); j++) {
                     if (actual->getIntereses().empty()) {
@@ -108,18 +87,8 @@ int main(){
                           }
                       }
                     }
-
                 }
             }
-            /*int c2=0;
-            while (c2<temp2.size()) {
-              lista->push(temp2[c2]);
-              c2=c2+1;
-            }
-            for (int i = 0; i < temp2.size(); i++) {
-                delete temp2[i];
-            }
-            temp2.clear();*/
             bool everyone=false;
             cout<<"-----------------------------------------"<<endl;
             cout<<"Todos"<<endl;
@@ -133,34 +102,6 @@ int main(){
                     }
                 }
             }
-            /*int cc=0;
-            bool xx=false;
-            while (cc<lista->getSize()) {
-              t=lista->pop();
-              temp2.push_back(t);
-              for (int i = 0; i < actual->getContactos().size(); i++) {
-                  if (temp2[cc]->getNombre()==actual->getContactos()[i]->getNombre()) {
-                    xx=false;
-                  }else{
-                    xx=true;
-                  }
-              }
-              if (xx==true) {
-                  cout<<"Nombre: "<<temp2[cc]->getNombre()<<endl;;
-              }
-              cc=cc+1;
-              delete t;
-            }*/
-
-            //c2=0;
-            /*while (c2<temp2.size()) {
-              lista->push(temp2[c2]);
-              c2=c2+1;
-            }
-            for (int i = 0; i < temp2.size(); i++) {
-                delete temp2[i];
-            }*/
-            //temp2.clear();*/
             cout<<"-----------------------------------------"<<endl;
             cout<<"Ingrese el indice de la persona a agregar: ";
             int agregar=0;
@@ -175,14 +116,6 @@ int main(){
             for (int i = 0; i < actual->getContactos().size(); i++) {
                 cout<<i<<actual->getContactos()[i]->getNombre()<<endl;
             }
-            /*c2=0;            //actual->addContactos(temp2[agregar]);
-            while (c2<temp2.size()) {
-              lista->push(temp2[c2]);
-              c2=c2+1;
-            }
-            for (int i = 0; i < temp2.size(); i++) {
-                delete temp2[i];
-            }*/
             for (int i = 0; i < temp2.size(); i++) {
                 lista->push(temp2[i]);
             }
@@ -193,7 +126,33 @@ int main(){
             temp2.clear();
           }
           if (op2==2) {
-
+            vector<Usuario*> temp;
+            for (int i = 0; i < lista->getSize(); i++) {
+                temp.push_back(lista->pop());
+            }
+            cout<<"Contactos"<<endl;
+            cout<<"-----------------------------------------"<<endl;
+            for (int i = 0; i < actual->getContactos().size(); i++) {
+                cout<<i<<actual->getContactos()[i]->getNombre()<<endl;
+            }
+            cout<<"-----------------------------------------"<<endl;
+            cout<<"Ingrese el indice del contacto a eliminar: ";
+            int opc=0;
+            cin>>opc;
+            opc=opc-1;
+            for (int i = 0; i < temp.size(); i++) {
+                if (actual->getNombre()==temp[i]->getNombre()&&actual->getPassword()==temp[i]->getPassword()) {
+                    //actual->getContactos().erase(actual->getContactos().begin()+opc);
+                    temp[i]->getContactos().erase(actual->getContactos().begin()+opc);
+                }
+            }
+            for (int i = 0; i < temp.size(); i++) {
+                lista->push(temp[i]);
+            }
+            cout<<"-----------------------------------------"<<endl;
+            cout<<"Contacto borrado con exito"<<endl;
+            cout<<"-----------------------------------------"<<endl;
+            temp.clear();
           }
           if (op2==3) {
             cout<<"Log out exitoso"<<endl;
