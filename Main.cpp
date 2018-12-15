@@ -6,6 +6,9 @@ using std::cin;
 #include <vector>
 using std::vector;
 
+#include <string>
+using std::string;
+
 #include "Usuario.h"
 #include "ListaEnlace.h"
 #include "Node.h"
@@ -50,6 +53,7 @@ int main(){
           actual=temp;
         }
         counter=counter+1;
+        delete temp;
       }
       int counter2=0;
       while (counter2<temp2.size()) {
@@ -91,6 +95,7 @@ int main(){
                   }
               }
               c=c+1;
+              delete t;
             }
             int c2=0;
             while (c2<temp2.size()) {
@@ -119,6 +124,7 @@ int main(){
                   cout<<"Nombre: "<<temp2[cc]->getNombre()<<endl;;
               }
               cc=cc+1;
+              delete t;
             }
             c2=0;
             /*while (c2<temp2.size()) {
@@ -197,15 +203,22 @@ int main(){
               puerta==1;
           }
       }
-      lista->push(new Usuario(nombre,edad,pass,gender));
-      lista->top()->setIntereses(intereses);
+      if (intereses.empty()) {
+        lista->push(new Usuario(nombre,edad,pass,gender));
+        cout<<"-----------------------------------------"<<endl;
+        cout<<"¡Usuario registrado con exito!"<<endl;
+        cout<<"-----------------------------------------"<<endl;
+      }else{
+        lista->push(new Usuario(nombre,edad,pass,gender));
+        lista->top()->setIntereses(intereses);
       //ofstream users("Usuarios.dat", std::ios::binary);
       //lista->top()->write(users);
       //users.close();
-      intereses.clear();
-      cout<<"-----------------------------------------"<<endl;
-      cout<<"¡Usuario registrado con exito!"<<endl;
-      cout<<"-----------------------------------------"<<endl;
+        intereses.clear();
+        cout<<"-----------------------------------------"<<endl;
+        cout<<"¡Usuario registrado con exito!"<<endl;
+        cout<<"-----------------------------------------"<<endl;
+      }
     }
     if (op==3) {
       cout<<"¡Gracias vuelva pronto!"<<endl;
