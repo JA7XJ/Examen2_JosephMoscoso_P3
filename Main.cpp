@@ -126,7 +126,7 @@ int main(){
             temp2.clear();
           }
           if (op2==2) {
-            vector<Usuario*> temp;
+            /*vector<Usuario*> temp;
             for (int i = 0; i < lista->getSize(); i++) {
                 temp.push_back(lista->pop());
             }
@@ -152,7 +152,7 @@ int main(){
             cout<<"-----------------------------------------"<<endl;
             cout<<"Contacto borrado con exito"<<endl;
             cout<<"-----------------------------------------"<<endl;
-            temp.clear();
+            temp.clear();*/
           }
           if (op2==3) {
             cout<<"Log out exitoso"<<endl;
